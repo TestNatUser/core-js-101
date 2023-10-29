@@ -292,8 +292,9 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  arr.sort((a, b) => a - b).reverse();
+  return Array.of(arr[0], arr[1], arr[2]);
 }
 
 
@@ -578,7 +579,7 @@ function swapHeadAndTail(arr) {
   const num = arr.length / 2;
   const start = [];
   const end = [];
-  for (let i = 1; i < num; i += 1) {
+  for (let i = 0; i <= num - 1; i += 1) {
     start.unshift(arr.pop());
     end.push(arr.shift());
   }

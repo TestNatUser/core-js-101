@@ -203,10 +203,6 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let arr = new Array(height);
-  if(width==2){
-
-  }
   return width * height;
 }
 
