@@ -205,7 +205,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  return arr.map((x) => `${x}\n,`);
+  return arr.map((x) => `${x}`).join('\n');
 }
 
 /**
@@ -294,7 +294,7 @@ function propagateItemsByPositionIndex(/* arr */) {
  */
 function get3TopItems(arr) {
   arr.sort((a, b) => a - b).reverse();
-  return Array.of(arr[0], arr[1], arr[2]);
+  return Array.of(...arr).slice(0, 3);
 }
 
 
@@ -312,7 +312,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  return arr.filter((el) => el > 0).length;
+  return arr.filter((el) => typeof el === 'number' && el > 0).length;
 }
 
 /**
