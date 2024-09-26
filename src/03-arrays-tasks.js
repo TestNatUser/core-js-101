@@ -36,11 +36,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  const arr = [];
-  for (let i = 0; i < len; i += 1) {
-    arr[i] = i === 0 ? 1 : arr[i - 1] + 2;
-  }
-  return arr;
+  return Array.from({ length: len }, (v, i) => 1 + i * 2);
 }
 
 
@@ -239,9 +235,12 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-  // const sum = 0;
-  // return arr.map((index) => sum += arr[index]);
-  return arr;
+  const array = [];
+  arr.reduce((acc, el, index) => {
+    array.push(acc);
+    return acc + arr[index + 1];
+  }, arr[0]);
+  return array;
 }
 
 /**
